@@ -7,7 +7,7 @@ $(document).ready(function(e) {
    			var password= formulario.children ('input:eq(1)').val();
 			var usuario= document.getElementById('Usuario').value;
 			var password= document.getElementById('Password').value;
-   
+   var ID_Usuario="";
    function LoginConectar(U, P)
    {
 	   datos= "usuario="+U+"$passwprd="+P;
@@ -20,11 +20,13 @@ $(document).ready(function(e) {
 		   if (msg=="" || msg==null)
 		   {
 			   alert("Usuario incorrecto");
-		   }
 		   else
-		   {
-			   alert("Bienvenido");
-		   }
+				{
+					var OUsuario=jQuery.parseJSON(msg);
+					ID_Usuario=OUsuario.Usuario;
+				alert("Bienvenido " + ID_Usuario);
+				location.href="#Busquedad";
+				}
 	   });//funtion msg
    }//function
 		});//tap
